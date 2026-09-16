@@ -1,6 +1,9 @@
 @echo off
 cd /d "%~dp0"
 
+:: Заставляем Playwright устанавливать браузеры прямо в папку проекта!
+set PLAYWRIGHT_BROWSERS_PATH=0
+
 if not exist venv\ (
     echo 🌸 Creating virtual environment...
     python -m venv venv
@@ -11,5 +14,6 @@ if not exist venv\ (
     call venv\Scripts\activate.bat
 )
 
+set PLAYWRIGHT_BROWSERS_PATH=0
 python main.py
 pause
